@@ -4,5 +4,13 @@
 # The STAR command is provided for you. You should replace the parts surrounded
 # by "<>" and uncomment it.
 
-# STAR --runThreadN 4 --runMode genomeGenerate --genomeDir <outdir> \
-# --genomeFastaFiles <genomefile> --genomeSAindexNbases 9
+GENOME_FILE=$1       
+INDEX_DIR=$2   
+
+for fname in out/cutadapt/*.fastq.gz
+do
+    STAR --runThreadN 4 --runMode genomeGenerate --genomeDir $INDEX_DIR \
+    --genomeFastaFiles $GENOME_FILE --genomeSAindexNbases 9
+done 
+
+
